@@ -1,0 +1,26 @@
+{
+  "resourceName": "adv",
+  "tableName": "adv",
+  "partitionKey": {
+    "fieldName": "url_id",
+    "fieldType": "number"
+  },
+  "sortKey": {
+    "fieldName": "short_url",
+    "fieldType": "string"
+  },
+  "gsi": [
+    {
+      "name": "url_id",
+      "partitionKey": {
+        "fieldName": "id",
+        "fieldType": "number"
+      },
+      "sortKey": {
+        "fieldName": "title",
+        "fieldType": "string"
+      }
+    }
+  ],
+  "triggerFunctions": []
+}
