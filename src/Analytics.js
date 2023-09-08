@@ -45,6 +45,34 @@ function Analytics() {
     <View className="App">
       <Heading level={1}>Analytics</Heading>
       <View margin="3rem 0">
+      <Flex
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Text as="strong" fontWeight={700}>
+             Long URL
+            </Text>
+            <Text as="strong" fontWeight={700}>
+             City
+            </Text>
+            <Text as="strong" fontWeight={700}>
+             Country
+            </Text>
+            <Text as="strong" fontWeight={700}>
+             Short URL
+            </Text>
+            <Text as="strong" fontWeight={700}>
+              Date
+            </Text>
+            <Text as="strong" fontWeight={700}>
+             IP
+            </Text>
+            <Text as="strong" fontWeight={700}>
+             Action
+            </Text>
+    
+          </Flex>
         {analytics.map((analytic) => (
           <Flex
             key={analytic.id}
@@ -52,7 +80,7 @@ function Analytics() {
             justifyContent="center"
             alignItems="center"
           >
-            <Text as="strong" fontWeight={700}>
+            <Text as="strong" >
               {analytic.long_url}
             </Text>
             <Text as="strong">
@@ -66,6 +94,9 @@ function Analytics() {
             </Text>
             <Text as="strong">
               {analytic.date}
+            </Text>
+            <Text as="strong">
+              {analytic.ip}
             </Text>
             <Button variation="link" onClick={() => deleteAnalytics(analytic)}>
               Delete

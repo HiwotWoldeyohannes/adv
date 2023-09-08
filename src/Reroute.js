@@ -40,11 +40,10 @@ function Reroute() {
     };
 
     function saveAnalytics(list) {
-        fetch("https://api.geoapify.com/v1/geocode/search?text=38%20Upper%20Montagu%20Street%2C%20Westminster%20W1H%201LJ%2C%20United%20Kingdom&apiKey=e4d9c900ced94a5aa48f3d6564c674d1", requestOptions)
+        fetch("https://api.geoapify.com/v1/ipinfo?apiKey=e4d9c900ced94a5aa48f3d6564c674d1", requestOptions)
             .then(response => response.json())
             .then(result => {
-                let feature = result.features[0].properties;
-                console.log(feature);
+                console.log(result);
                 let longUrl = list.filter(n => n.description === window.location.href)
 
                 console.log(longUrl, window.location.href)
@@ -53,9 +52,9 @@ function Reroute() {
                     // console.log(longUrl.length , longUrl[0].name)
                     createAnalytics(
                         {
-                            city: feature.city,
-                            country: feature.country,
-                            ip: "String",
+                            city: result.city.name,
+                            country: result.country.name,
+                            ip: result.ip,
                             long_url: longUrl[0].name,
                             short_url: window.location.href,
                             date: new Date()
