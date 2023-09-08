@@ -7,3 +7,13 @@ type Todo @model {
   name: String!
   description: String
 }
+
+type Analytics @model {
+  id: ID!
+  city: String
+  country: String
+  ip: String
+  long_url: String
+  short_url: String
+  date: String
+}
