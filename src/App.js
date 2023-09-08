@@ -27,7 +27,14 @@ function App({ signOut }) {
   }, []);
 
   if(window.location.href.indexOf("test") != -1){
-    console.log(notes);
+    var requestOptions = {
+      method: 'GET',
+    };
+    
+    fetch("https://api.geoapify.com/v1/geocode/search?text=38%20Upper%20Montagu%20Street%2C%20Westminster%20W1H%201LJ%2C%20United%20Kingdom&apiKey=e4d9c900ced94a5aa48f3d6564c674d1", requestOptions)
+      .then(response => response.json())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
     let longUrl = notes.filter(n=> n.description == window.location.href)
    
     console.log(longUrl, window.location.href)
@@ -36,7 +43,7 @@ function App({ signOut }) {
       // console.log(longUrl.length , longUrl[0].name)
 
       // eslint-disable-next-line no-restricted-globals
-      location.assign(longUrl[0].name);
+      // location.assign(longUrl[0].name);
     }
     else
     return <h1>wrong url</h1>
